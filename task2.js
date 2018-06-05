@@ -42,7 +42,7 @@ function Year() {
 }
 
 Year();
-/*if (Number(process.argv[4])%4 == 0){     //цикл учета с високосным годом
+if (Number(process.argv[4])%4 == 0){     //цикл учета с високосным годом
     if (process.argv[3] == 'января'){
         console.log((366 - day)+1);  //+1 , т.к. 31 декабря до нового не 0, а 1 день
     }
@@ -50,6 +50,6 @@ Year();
         console.log((366 - ++day)+1);
     }
 }
-else {*/
+else {
     console.log((365 - day)+1);
-//}
+}
