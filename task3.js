@@ -37,15 +37,33 @@ function Check() {
     if (time3 >= 60) {
         time2 = (time3-(time3 % 60))/60;
         time3 %= 60;
-        CheckMin();
         CheckSec();
         if (time2 >= 60) {
             time1 = (time2-(time2 % 60))/60;
+            time2 %= 60;
+            CheckMin();
             CheckH();
-            console.log(time1out,time2out,time3out);
+            if (time2 == 0) {
+                console.log(time1out,time3out);
+            }
+            else if (time3 == 0) {
+                console.log(time1out,time2out);
+            }
+            else if ((time2 == 0)&(time3 == 0)){
+                console.log(time1out);
+            }
+            else {
+                console.log(time1out,time2out,time3out);
+            }
         }
         else if (time2 < 60){
-            console.log(time2out,time3out);
+            CheckMin();
+            if (time3 == 0) {
+                console.log(time2out);
+            }
+            else {
+                console.log(time2out,time3out);
+            }
         }
     }
     else if (time3 < 60) {
