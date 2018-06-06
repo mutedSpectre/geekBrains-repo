@@ -1,7 +1,8 @@
 var day;
 
 function Year() {
-    switch (process.argv[3]){
+    
+    switch (process.argv[3]){    //проверка на месяц
         case 'января':
             day = Number(process.argv[2]);
             break;
@@ -39,15 +40,17 @@ function Year() {
             day = 334 + Number(process.argv[2]);
             break;
     }
+
 }
 
-Year();
-if (Number(process.argv[4])%4 == 0){     //цикл учета с високосным годом
+Year();    //вызов функции проверки оставшегося кол-ва дней
+
+if (Number(process.argv[4])%4 == 0){    //цикл учета с високосным годом
     if (process.argv[3] == 'января'){
-        console.log(366 - day);  //+1 , т.к. 31 декабря до нового не 0, а 1 день
+        console.log(366 - day);    //т.к. в високосном году 366 дней, этот день находится в феврале, то январь остается в норме
     }
     else {
-        console.log(366 - ++day);
+        console.log(366 - ++day);    //если это не январь, то в феврале +1 день ко всем месяцам.
     }
 }
 else {
